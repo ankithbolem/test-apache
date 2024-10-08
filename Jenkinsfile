@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout code from the feature/routelink branch
-                git branch: 'feature/routelink', url: 'https://github.com/your-username/sample-apache-app.git'
+                echo "hello javahome"
             }
         }
 
@@ -13,14 +13,8 @@ pipeline {
             steps {
                 // SSH into the EC2 instance and deploy the code to the Apache document root
                 script {
-                    sh '''
-                    ssh -o StrictHostKeyChecking=no ec2-user@<jenkins-test-ec2-ip> << 'EOF'
-                    cd /var/www/html
-                    sudo git pull origin feature/routelink
-                    sudo systemctl restart httpd  # Restart Apache to reflect changes
-                    exit
-                    EOF
-                    '''
+                   
+                    echo "hi this a "
                 }
             }
         }
